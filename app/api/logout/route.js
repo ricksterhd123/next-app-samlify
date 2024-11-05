@@ -9,5 +9,6 @@ export async function GET(request) {
   console.log(`logout request id:`, id);
   console.log(`logout request context:`, context);
 
+  session.destroy();
   return Response.redirect(context);
 }
