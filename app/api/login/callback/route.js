@@ -21,8 +21,8 @@ export async function POST(request) {
   const userId = extract.nameID;
   const response = await sts.assumeRoleWithSAML({
     RoleSessionName: `${userId}@http://localhost:3000`,
-    PrincipalArn: 'arn:aws:iam::220207374598:saml-provider/Custom_SAML_2.0_application_ins-cbf2fb5ffb800e8e',
-    RoleArn: 'arn:aws:iam::220207374598:role/TEST_ROLE_SAML',
+    PrincipalArn: process.env.IDP_PROVIDER_ARN,
+    RoleArn: process.env.IAM_ROLE_ARN,
     SAMLAssertion: Buffer.from(SAMLResponse, 'base64').toString('base64'),
     DurationSeconds: 900,
   });
