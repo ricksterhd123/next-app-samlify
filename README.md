@@ -45,7 +45,7 @@ Put the identity provider ARN in `.env` under `IDP_PROVIDER_ARN`
 ### Setup IAM Role with trust policy
 Go to IAM -> Roles -> Create role
 
-You can get the issuer from the `entityID` tag on the root EntityDescriptor node in the idP metadata XML
+You can get the `saml:iss` (issuer) from the `entityID` tag on the root EntityDescriptor node in the idP metadata XML
 
 ```json
 {
@@ -54,7 +54,7 @@ You can get the issuer from the `entityID` tag on the root EntityDescriptor node
         {
             "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::220207374598:saml-provider/Custom_SAML_2.0_application_ins-cbf2fb5ffb800e8e"
+                "Federated": "{IDP_PROVIDER_ARN}"
             },
             "Action": "sts:AssumeRoleWithSAML",
             "Condition": {
