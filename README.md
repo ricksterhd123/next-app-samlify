@@ -2,7 +2,8 @@
 
 A proof of concept for using AWS SSO with Next.js
 
-Many thanks to [tigaron](https://github.com/tigaron)
+Many thanks to [tigaron](https://github.com/tigaron) who provided example using page router.
+I've re-adapted his example with app router instead.
 
 ## Getting Started
 
