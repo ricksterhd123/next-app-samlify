@@ -1,5 +1,14 @@
+import { getIronSession } from "iron-session";
+import { cookies } from "next/headers";
+
 export async function GET(request) {
-  return Response.json({
-    message: 'Hello user!'
-  });
+  const session = await getIronSession(await cookies(), { password: process.env.COOKIE_PASSWORD , cookieName: 'sessionId' });
+
+  if (!session?.user) {
+    return Response.json({
+      isLoggedIn: false
+    });
+  } else {
+    return Response.json(session.user);
+  }
 }
