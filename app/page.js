@@ -13,6 +13,7 @@ export default function Home() {
       <p>Email: {user?.login}</p>
       <p>SessionInfo:</p>
       <pre>{JSON.stringify(user?.sessionInfo || {}, null, 4)}</pre>
+      <pre>{JSON.stringify(user?.iamCallerIdentity || {}, null, 4)}</pre>
       <a href="/api/logout">Logout</a>
     </div> : <div>
       <p>Logging in...</p>
