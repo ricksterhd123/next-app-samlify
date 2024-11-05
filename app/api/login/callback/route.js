@@ -1,4 +1,6 @@
 import { idp, sp } from "@/lib/saml";
+import getSessionOptions from "@/lib/session";
+import getSession from "@/lib/session";
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 
@@ -16,7 +18,8 @@ export async function POST(request) {
 
   console.log(JSON.stringify(extract, null, 4));
 
-  const session = await getIronSession(await cookies(), { password: process.env.COOKIE_PASSWORD, cookieName: 'sessionId' });
+  const session = await getIronSession(await cookies(), getSessionOptions())
+
   session.user = {
     isLoggedIn: true,
     login: extract.nameID,
