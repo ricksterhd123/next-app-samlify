@@ -40,6 +40,8 @@ Go to IAM -> Identity Providers -> Create Identity Provider
 
 Enter a useful name and upload idp metadata xml
 
+Put the identity provider ARN in `.env` under `IDP_PROVIDER_ARN`
+
 ### Setup IAM Role with trust policy
 Go to IAM -> Roles -> Create role
 
@@ -64,6 +66,8 @@ You can get the issuer from the `entityID` tag on the root EntityDescriptor node
     ]
 }
 ```
+
+Put the role ARN in `.env` under `IAM_ROLE_ARN`.
 
 ### Setup attribute mapping
 An example mapping I used to get this working
