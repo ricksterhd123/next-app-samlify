@@ -11,7 +11,7 @@
   "dependencies": {
     "@aws-sdk/client-sts": "^3.682.0",
     "iron-session": "^8.0.3",
-    "next": "15.0.2",
+    "next": "15.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "samlify": "^2.8.11",
